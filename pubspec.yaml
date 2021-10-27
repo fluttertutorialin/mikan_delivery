@@ -1,0 +1,35 @@
+name: mikan
+description: A new Flutter project.
+
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  get:
+  google_fonts:
+  pull_to_refresh:
+  flutter_widget_from_html:
+  extended_sliver:
+  extended_image:
+  waterfall_flow:
+  modal_bottom_sheet:
+  jiffy:
+  flutter_spinkit:
+  sprung:
+  fluentui_system_icons:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^1.0.0
+
+flutter:
+  uses-material-design: true
