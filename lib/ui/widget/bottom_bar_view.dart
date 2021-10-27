@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 import 'dart:ui';
 import 'package:extended_image/extended_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class BarItem {
@@ -59,13 +58,14 @@ class _BottomBarViewState extends State<BottomBarView>
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-        borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+        borderRadius: const BorderRadius.all(Radius.circular(0.0)),
         child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 16.0, sigmaY: 16.0),
             child: Container(
                 height: widget.height,
                 decoration: BoxDecoration(
-                    color: Theme.of(context).backgroundColor.withOpacity(0.72)),
+                    color:
+                        Theme.of(context).bottomAppBarColor.withOpacity(0.72)),
                 child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -145,7 +145,8 @@ class _BottomBarItemViewState extends State<_BottomBarItemView>
           ? ExtendedImage.asset(barItem.selectedIconPath!,
               width: barItem._size + 0, height: barItem._size + 0)
           : Icon(barItem.selectedIcon,
-              size: barItem._size + 0, color: Theme.of(context).secondaryHeaderColor);
+              size: barItem._size + 0,
+              color: Theme.of(context).secondaryHeaderColor);
     }
     return barItem.icon == null
         ? ExtendedImage.asset(barItem.iconPath!,
@@ -184,7 +185,8 @@ class _BottomBarItemViewState extends State<_BottomBarItemView>
                                     parent: _animationController,
                                     curve: const Interval(0.1, 1.0,
                                         curve: Curves.linear))),
-                            child: _toBarIcon(theme.secondaryHeaderColor, widget.barItem)),
+                            child: _toBarIcon(
+                                theme.secondaryHeaderColor, widget.barItem)),
                         ..._buildPointWidgets(theme)
                       ]))))),
       padding: const EdgeInsets.symmetric(vertical: 8),

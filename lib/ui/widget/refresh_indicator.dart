@@ -30,7 +30,7 @@ class Indicator {
       {final double height = 72,
       final double top = 0,
       final double bottom = 0}) {
-    return _build(SpinKitPumpingHeart(size: 18, color: color), "使点劲", height,
+    return _build(SpinKitCircle(size: 18, color: color), 'Loading', height,
         top, bottom);
   }
 
@@ -42,7 +42,7 @@ class Indicator {
     final double bottom = 0,
   }) {
     return _build(
-        SpinKitSquareCircle(size: 18, color: color), "松手", height, top, bottom);
+        SpinKitSquareCircle(size: 18, color: color), "Let go", height, top, bottom);
   }
 
   static Widget ing(
@@ -63,7 +63,7 @@ class Indicator {
               );
             },
             duration: const Duration(milliseconds: 800)),
-        "加载中，请稍候...",
+        'Loading, please wait ...',
         height,
         top,
         bottom);
@@ -77,7 +77,7 @@ class Indicator {
     final double bottom = 0,
   }) {
     return _build(
-        SpinKitDualRing(size: 18, color: color), "加载完成", height, top, bottom);
+        SpinKitDualRing(size: 18, color: color), 'Completed', height, top, bottom);
   }
 
   static Widget failed(
@@ -87,7 +87,7 @@ class Indicator {
     final double top = 0,
     final double bottom = 0,
   }) {
-    return _build(SpinKitPumpingHeart(size: 18, color: color), "点击重试", height,
+    return _build(SpinKitPumpingHeart(size: 18, color: color), 'Failed', height,
         top, bottom);
   }
 
@@ -99,7 +99,7 @@ class Indicator {
     final double bottom = 0,
   }) {
     return _build(
-        SpinKitDoubleBounce(size: 18, color: color), "没啦", height, top, bottom);
+        SpinKitDoubleBounce(size: 18, color: color), 'No more data', height, top, bottom);
   }
 
   static Widget header(
