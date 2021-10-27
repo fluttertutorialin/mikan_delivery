@@ -4,9 +4,11 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'list_fragment.dart';
+import 'profile_fragment.dart';
+import 'search_fragment.dart';
+import 'setting_fragment.dart';
 import '../../controller/collection_package.dart';
 import '../widget/bottom_bar_view.dart';
-import '../../resource/screen.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({Key? key}) : super(key: key);
@@ -53,11 +55,11 @@ class HomePage extends GetView<HomeController> {
                                   controller.selectIndexItem(index);
                                 }))))),
             body: Stack(children: [
-              Obx(() => IndexedStack(children: [
-                    const ListFragment(),
-                    Container(),
-                    Container(),
-                    Container()
+              Obx(() => IndexedStack(children: const [
+                    ListFragment(),
+                    SearchFragment(),
+                    ProfileFragment(),
+                    SettingFragment()
                   ], index: controller.selectIndex)),
             ])));
   }

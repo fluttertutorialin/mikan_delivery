@@ -89,7 +89,7 @@ class ListFragment extends GetView<ListController> {
                             padding: const EdgeInsets.only(
                                 left: 16.0, right: 16.0, top: 8.0),
                             child: Tooltip(
-                                message: 'Redmi Note 10 Pro',
+                                message: 'Address',
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 12.0, vertical: 8.0),
                                 margin: EdgeInsets.only(
@@ -106,15 +106,6 @@ class ListFragment extends GetView<ListController> {
                                         height: 1.25,
                                         fontWeight: FontWeight.w500)))),
                         const SizedBox(height: 4.0),
-                        Container(
-                            margin: const EdgeInsets.only(
-                                left: 16.0, right: 16.0, top: 4.0),
-                            width: double.infinity,
-                            child: SingleChildScrollView(
-                                scrollDirection: Axis.horizontal,
-                                child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: []))),
                         Row(children: <Widget>[
                           GestureDetector(
                               onTap: () {},

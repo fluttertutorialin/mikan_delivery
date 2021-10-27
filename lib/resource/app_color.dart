@@ -10,13 +10,6 @@ const Color bottomBarBackgroundColor = Colors.white;
 const primarySwatchColor = Colors.deepOrange;
 const Color iconThemeColor = Colors.black;
 
-const Color greyColor = Color(0xff8387A5);
 const Color whiteColor = Colors.white;
 
-const Color textFieldBorderColor = Colors.grey;
-const Color filColor = Color(0xff2A2D4A);
 
-Color boxColor = const Color(0xff0B0F2C);
-
-var buttonGradient = const LinearGradient(begin: Alignment.centerLeft, end: Alignment.centerRight,
-    colors: [Color(0xffFF3FFA), Color(0xff0037BF)]);

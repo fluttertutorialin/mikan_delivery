@@ -27,6 +27,30 @@ class MyApp extends StatelessWidget {
         child: GetMaterialApp(
             scrollBehavior: normalScrollBehavior,
             theme: ThemeData(
+                inputDecorationTheme: InputDecorationTheme(
+                    focusedBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.all(Radius.circular(16.0))),
+                    disabledBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.all(Radius.circular(16.0))),
+                    enabledBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.all(Radius.circular(16.0))),
+                    errorBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.all(Radius.circular(16.0))),
+                    focusedErrorBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.all(Radius.circular(16.0))),
+                    border: const UnderlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.all(Radius.circular(16.0))),
+                    prefixStyle: TextStyle(color: accentColor),
+                    suffixStyle: TextStyle(color: accentColor),
+                    focusColor: accentColor,
+                    hintStyle: const TextStyle(height: 1.4, fontSize: 14.0),
+                    labelStyle: const TextStyle(fontSize: 14.0)),
                 colorScheme: ColorScheme.light(
                     primary: primaryColor,
                     primaryVariant: primaryColor.darken(0.2),
@@ -38,6 +62,33 @@ class MyApp extends StatelessWidget {
                 backgroundColor: backgroundColor,
                 primaryColor: primaryColor,
                 primarySwatch: primarySwatchColor,
+                textButtonTheme: TextButtonThemeData(
+                    style: ButtonStyle(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0))),
+                        elevation: MaterialStateProperty.all(1),
+                        padding: MaterialStateProperty.all(
+                            const EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 12)),
+                        overlayColor: MaterialStateProperty.resolveWith<Color?>(
+                            (Set<MaterialState> states) {
+                          if (states.contains(MaterialState.focused)) {
+                            return accentColor.withOpacity(0.8);
+                          }
+                          if (states.contains(MaterialState.hovered)) {
+                            return accentColor.withOpacity(0.8);
+                          }
+                          if (states.contains(MaterialState.pressed)) {
+                            return accentColor.withOpacity(0.8);
+                          }
+                          return null;
+                        }),
+                        textStyle: MaterialStateProperty.all(
+                            const TextStyle(fontSize: 15)),
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            primarySwatchColor))),
                 secondaryHeaderColor: accentColor,
                 bottomAppBarColor: bottomBarBackgroundColor,
                 scaffoldBackgroundColor: scaffoldBackgroundColor,
