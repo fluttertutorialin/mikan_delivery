@@ -10,8 +10,8 @@ import '../widget/tap_scale_container.dart';
 import '../../resource/app_color.dart';
 import '../widget/refresh_indicator.dart';
 
-class ListFragment extends GetView<ListController> {
-  const ListFragment({Key? key}) : super(key: key);
+class NotificationPage extends GetView<NotificationController> {
+  const NotificationPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +64,7 @@ class ListFragment extends GetView<ListController> {
                         const Padding(
                             padding: EdgeInsets.only(
                                 left: 16.0, right: 16.0, top: 16.0),
-                            child: Text('Lakhani kamlesh J.',
+                            child: Text('Notification',
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16.0,
@@ -73,26 +73,7 @@ class ListFragment extends GetView<ListController> {
                             padding: const EdgeInsets.only(
                                 left: 16.0, right: 16.0, top: 8.0),
                             child: Tooltip(
-                                message: 'Rs. 1500 (Total 5 Items)',
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 12.0, vertical: 8.0),
-                                margin: EdgeInsets.only(
-                                    top: 136.0 + Screen.statusBarHeight,
-                                    left: 16.0,
-                                    right: 16.0,
-                                    bottom: 24.0),
-                                child: const Text('Rs. 1500 (Total 5 Items)',
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                        fontSize: 14.0,
-                                        height: 1.25,
-                                        fontWeight: FontWeight.w500)))),
-                        Padding(
-                            padding: const EdgeInsets.only(
-                                left: 16.0, right: 16.0, top: 8.0),
-                            child: Tooltip(
-                                message: 'Address',
+                                message: 'Order dispatched',
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 12.0, vertical: 8.0),
                                 margin: EdgeInsets.only(
@@ -101,9 +82,11 @@ class ListFragment extends GetView<ListController> {
                                     right: 16.0,
                                     bottom: 24.0),
                                 child: const Text(
-                                    'To. Ravani (Kuba) Ta. Visavadar Dis. Junagadh 362130',
+                                    'Order is dispatched successful 00001',
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
-                                        fontSize: 13.0,
+                                        fontSize: 14.0,
                                         height: 1.25,
                                         fontWeight: FontWeight.w500)))),
                         const SizedBox(height: 4.0),
@@ -127,21 +110,15 @@ class ListFragment extends GetView<ListController> {
                                       ]))),
                           const Spacer(),
                           IconButton(
-                              icon: const Icon(FluentIcons.map_24_regular),
+                              icon: const Icon(FluentIcons.heart_24_regular),
                               color: Get.theme.secondaryHeaderColor,
-                              tooltip: 'Map',
+                              tooltip: 'Add to favorite',
                               iconSize: 20.0,
                               onPressed: () {}),
                           IconButton(
-                              icon: const Icon(FluentIcons.call_24_regular),
+                              icon: const Icon(FluentIcons.delete_24_regular),
                               color: Get.theme.secondaryHeaderColor,
-                              tooltip: 'Done',
-                              iconSize: 20.0,
-                              onPressed: () {}),
-                          IconButton(
-                              icon: const Icon(FluentIcons.chat_24_regular),
-                              color: Get.theme.secondaryHeaderColor,
-                              tooltip: 'Chat',
+                              tooltip: 'Delete',
                               iconSize: 20.0,
                               onPressed: () {})
                         ])
@@ -164,7 +141,18 @@ class ListFragment extends GetView<ListController> {
                 right: 16.0,
                 bottom: 16.0),
             duration: const Duration(milliseconds: 240),
-            child: Row(children: const <Widget>[Text('Dispatch')]))));
+            child: Row(children: [
+              GestureDetector(
+                  child: const CircleAvatar(
+                      radius: 14,
+                      child: Icon(FluentIcons.arrow_left_24_regular, size: 15)),
+                  onTap: () {
+                    FocusScope.of(Get.context!).requestFocus(FocusNode());
+                    Get.back();
+                  }),
+              const SizedBox(width: 10),
+              const Text('Notification')
+            ]))));
   }
 
   BorderRadius scrollHeaderBorderRadius(final bool hasScrolled) => hasScrolled

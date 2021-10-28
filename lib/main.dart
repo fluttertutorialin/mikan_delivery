@@ -87,8 +87,8 @@ class MyApp extends StatelessWidget {
                         }),
                         textStyle: MaterialStateProperty.all(
                             const TextStyle(fontSize: 15)),
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                            primarySwatchColor))),
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(primarySwatchColor))),
                 secondaryHeaderColor: accentColor,
                 bottomAppBarColor: bottomBarBackgroundColor,
                 scaffoldBackgroundColor: scaffoldBackgroundColor,

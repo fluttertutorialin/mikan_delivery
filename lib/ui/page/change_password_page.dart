@@ -2,14 +2,14 @@ import 'package:extended_sliver/extended_sliver.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mikan/resource/app_color.dart';
-import 'package:mikan/ui/widget/form_button_widget.dart';
+import '../../resource/app_color.dart';
+import '../widget/form_button_widget.dart';
 import '../widget/text_field_component.dart';
 import '../../controller/collection_package.dart';
 import '../../resource/screen.dart';
 
-class SearchFragment extends GetView<ListController> {
-  const SearchFragment({Key? key}) : super(key: key);
+class ChangePasswordPage extends GetView<ChangePasswordController> {
+  const ChangePasswordPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +26,10 @@ class SearchFragment extends GetView<ListController> {
               }
               return true;
             },
-            child: CustomScrollView(slivers: [_buildHeader(), _searchForm()])));
+            child: CustomScrollView(slivers: [_buildHeader(), _changePasswordForm()])));
   }
 
-  _searchForm() {
+  _changePasswordForm() {
     return SliverPadding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0.0),
         sliver: SliverToBoxAdapter(
@@ -41,39 +41,19 @@ class SearchFragment extends GetView<ListController> {
                         const BorderRadius.all(Radius.circular(16.0))),
                 child: Column(children: const [
                   TextFieldComponent(
-                      hintText: 'Order Id',
-                      suffixIcon: Icon(FluentIcons.app_generic_24_regular)),
+                      hintText: 'Current password',
+                      suffixIcon: Icon(FluentIcons.eye_hide_24_regular)),
                   SizedBox(height: 16),
                   TextFieldComponent(
-                      hintText: 'Name',
-                      suffixIcon: Icon(FluentIcons.person_24_regular)),
+                      hintText: 'New password',
+                      suffixIcon: Icon(FluentIcons.eye_hide_24_regular)),
                   SizedBox(height: 16),
                   TextFieldComponent(
-                      hintText: 'Email',
-                      suffixIcon: Icon(FluentIcons.call_24_regular)),
-                  SizedBox(height: 16),
-                  TextFieldComponent(
-                      hintText: 'Mobile',
-                      suffixIcon: Icon(FluentIcons.call_24_regular)),
-                  SizedBox(height: 16),
-                  TextFieldComponent(
-                      hintText: 'Address',
-                      suffixIcon: Icon(FluentIcons.location_24_regular)),
-                  SizedBox(height: 16),
-                  TextFieldComponent(
-                      hintText: 'Order date',
-                      suffixIcon: Icon(FluentIcons.time_picker_24_regular)),
-                  SizedBox(height: 16),
-                  TextFieldComponent(
-                      hintText: 'Dispatch date',
-                      suffixIcon: Icon(FluentIcons.time_picker_24_regular)),
-                  SizedBox(height: 16),
-                  TextFieldComponent(
-                      hintText: 'Order status',
-                      suffixIcon: Icon(FluentIcons.status_24_regular)),
+                      hintText: 'New confirm password',
+                      suffixIcon: Icon(FluentIcons.eye_hide_24_regular)),
                   SizedBox(height: 16),
                   FormButtonWidget(
-                      text: Text('SEARCH ORDER',
+                      text: Text('CHANGE PASSWORD',
                           style: TextStyle(color: whiteColor)))
                 ]))));
   }
@@ -93,7 +73,18 @@ class SearchFragment extends GetView<ListController> {
                 right: 16.0,
                 bottom: 16.0),
             duration: const Duration(milliseconds: 240),
-            child: Row(children: const <Widget>[Text('Search')]))));
+            child: Row(children: [
+              GestureDetector(
+                  child: const CircleAvatar(
+                      radius: 14,
+                      child: Icon(FluentIcons.arrow_left_24_regular, size: 15)),
+                  onTap: () {
+                    FocusScope.of(Get.context!).requestFocus(FocusNode());
+                    Get.back();
+                  }),
+              const SizedBox(width: 10),
+              const Text('Chnage password')
+            ]))));
   }
 
   BorderRadius scrollHeaderBorderRadius(final bool hasScrolled) => hasScrolled

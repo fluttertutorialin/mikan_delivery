@@ -53,29 +53,27 @@ class _TapScaleContainerState extends State<TapScaleContainer> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTapDown: (_) => _tapStart(),
-      onTapCancel: () => _tapEnd(),
-      onTapUp: (_) => _tapEnd(),
-      onTap: widget.onTap,
-      onLongPress: widget.onLongPress,
-      child: AnimatedContainer(
-        duration: _kDuration,
-        transform: _transform,
-        curve: _kSpringCurve,
-        alignment: widget.alignment,
-        padding: widget.padding,
-        color: widget.color,
-        decoration: widget.decoration,
-        width: widget.width,
-        height: widget.height,
-        foregroundDecoration: widget.foregroundDecoration,
-        constraints: widget.constraints,
-        margin: widget.margin,
-        transformAlignment: widget.transformAlignment,
-        clipBehavior: widget.clipBehavior,
-        child: widget.child,
-      ),
-    );
+        onTapDown: (_) => _tapStart(),
+        onTapCancel: () => _tapEnd(),
+        onTapUp: (_) => _tapEnd(),
+        onTap: widget.onTap,
+        onLongPress: widget.onLongPress,
+        child: AnimatedContainer(
+            duration: _kDuration,
+            transform: _transform,
+            curve: _kSpringCurve,
+            alignment: widget.alignment,
+            padding: widget.padding,
+            color: widget.color,
+            decoration: widget.decoration,
+            width: widget.width,
+            height: widget.height,
+            foregroundDecoration: widget.foregroundDecoration,
+            constraints: widget.constraints,
+            margin: widget.margin,
+            transformAlignment: widget.transformAlignment,
+            clipBehavior: widget.clipBehavior,
+            child: widget.child));
   }
 
   _tapEnd() async {

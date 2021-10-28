@@ -2,6 +2,7 @@ import 'package:extended_sliver/extended_sliver.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mikan/route_navigation/route.dart';
 import '../../controller/collection_package.dart';
 import '../../resource/screen.dart';
 
@@ -23,7 +24,8 @@ class SettingFragment extends GetView<ListController> {
               }
               return true;
             },
-            child: CustomScrollView(slivers: [_buildHeader(), _settingMenu()])));
+            child:
+                CustomScrollView(slivers: [_buildHeader(), _settingMenu()])));
   }
 
   _settingMenu() {
@@ -36,36 +38,44 @@ class SettingFragment extends GetView<ListController> {
                     color: Get.theme.backgroundColor,
                     borderRadius:
                         const BorderRadius.all(Radius.circular(16.0))),
-                child: Column(children:  [
-                  ListTile(
-                    contentPadding: const EdgeInsets.all(0.0),
-                      onTap: (){},
-                      title: const Text('Notification'),
-                      leading:  const Icon(FluentIcons.number_row_16_regular)),
-                 const Divider(),
+                child: Column(children: [
                   ListTile(
                       contentPadding: const EdgeInsets.all(0.0),
-                      onTap: (){},
-                      title: const Text('Change password'),
-                      leading:  const Icon(FluentIcons.edit_24_regular)),
+                      onTap: () {
+                        Get.toNamed(notificationRoute);
+                      },
+                      title: const Text('Notification',
+                          style: TextStyle(fontSize: 15)),
+                      leading: const Icon(FluentIcons.number_row_16_regular)),
                   const Divider(),
                   ListTile(
                       contentPadding: const EdgeInsets.all(0.0),
-                      onTap: (){},
-                      title: const Text('Profile edit'),
-                      leading:  const Icon(FluentIcons.person_24_regular)),
+                      onTap: () {
+                        Get.toNamed(changePasswordRoute);
+                      },
+                      title: const Text('Change password',
+                          style: TextStyle(fontSize: 15)),
+                      leading: const Icon(FluentIcons.edit_24_regular)),
                   const Divider(),
                   ListTile(
                       contentPadding: const EdgeInsets.all(0.0),
-                      onTap: (){},
-                      title: const Text('Chat'),
-                      leading:  const Icon(FluentIcons.chat_24_regular)),
+                      onTap: () {},
+                      title: const Text('Profile edit',
+                          style: TextStyle(fontSize: 15)),
+                      leading: const Icon(FluentIcons.person_24_regular)),
                   const Divider(),
                   ListTile(
                       contentPadding: const EdgeInsets.all(0.0),
-                      onTap: (){},
-                      title: const Text('Logout'),
-                      leading:  const Icon(FluentIcons.lock_closed_24_regular))
+                      onTap: () {},
+                      title: const Text('Chat', style: TextStyle(fontSize: 15)),
+                      leading: const Icon(FluentIcons.chat_24_regular)),
+                  const Divider(),
+                  ListTile(
+                      contentPadding: const EdgeInsets.all(0.0),
+                      onTap: () {},
+                      title:
+                          const Text('Logout', style: TextStyle(fontSize: 15)),
+                      leading: const Icon(FluentIcons.lock_closed_24_regular))
                 ]))));
   }
 

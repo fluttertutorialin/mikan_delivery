@@ -43,15 +43,15 @@ class ProfileFragment extends GetView<ListController> {
                   SizedBox(height: 20),
                   TextFieldComponent(
                       hintText: 'Name',
-                      suffixIcon: Icon(FluentIcons.app_generic_24_regular)),
-                  SizedBox(height: 16),
-                  TextFieldComponent(
-                      hintText: 'Mobile',
                       suffixIcon: Icon(FluentIcons.person_24_regular)),
                   SizedBox(height: 16),
                   TextFieldComponent(
-                      hintText: 'Email',
+                      hintText: 'Mobile',
                       suffixIcon: Icon(FluentIcons.call_24_regular)),
+                  SizedBox(height: 16),
+                  TextFieldComponent(
+                      hintText: 'Email',
+                      suffixIcon: Icon(FluentIcons.rating_mature_24_regular)),
                   SizedBox(height: 16),
                   TextFieldComponent(
                       hintText: 'Address',
