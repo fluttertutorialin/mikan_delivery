@@ -2,8 +2,8 @@ import 'package:extended_sliver/extended_sliver.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mikan/resource/app_color.dart';
-import 'package:mikan/ui/widget/form_button_widget.dart';
+import '../../resource/app_color.dart';
+import '../widget/form_button_widget.dart';
 import '../widget/text_field_component.dart';
 import '../../controller/collection_package.dart';
 import '../../resource/screen.dart';
@@ -50,7 +50,7 @@ class SearchFragment extends GetView<ListController> {
                   SizedBox(height: 16),
                   TextFieldComponent(
                       hintText: 'Email',
-                      suffixIcon: Icon(FluentIcons.call_24_regular)),
+                      suffixIcon: Icon(FluentIcons.rating_mature_24_regular)),
                   SizedBox(height: 16),
                   TextFieldComponent(
                       hintText: 'Mobile',

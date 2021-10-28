@@ -2,12 +2,14 @@ import 'package:extended_sliver/extended_sliver.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../route_navigation/route.dart';
+import '../../resource/app_color.dart';
+import '../widget/form_button_widget.dart';
+import '../widget/text_field_component.dart';
 import '../../controller/collection_package.dart';
 import '../../resource/screen.dart';
 
-class SettingFragment extends GetView<ListController> {
-  const SettingFragment({Key? key}) : super(key: key);
+class ProfileEditPage extends GetView<ProfileEditController> {
+  const ProfileEditPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +26,10 @@ class SettingFragment extends GetView<ListController> {
               }
               return true;
             },
-            child:
-                CustomScrollView(slivers: [_buildHeader(), _settingMenu()])));
+            child: CustomScrollView(slivers: [_buildHeader(), _changePasswordForm()])));
   }
 
-  _settingMenu() {
+  _changePasswordForm() {
     return SliverPadding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0.0),
         sliver: SliverToBoxAdapter(
@@ -38,48 +39,28 @@ class SettingFragment extends GetView<ListController> {
                     color: Get.theme.backgroundColor,
                     borderRadius:
                         const BorderRadius.all(Radius.circular(16.0))),
-                child: Column(children: [
-                  ListTile(
-                      contentPadding: const EdgeInsets.all(0.0),
-                      onTap: () {
-                        Get.toNamed(notificationRoute);
-                      },
-                      title: const Text('Notification',
-                          style: TextStyle(fontSize: 15)),
-                      leading: const Icon(FluentIcons.number_row_16_regular)),
-                  const Divider(),
-                  ListTile(
-                      contentPadding: const EdgeInsets.all(0.0),
-                      onTap: () {
-                        Get.toNamed(changePasswordRoute);
-                      },
-                      title: const Text('Change password',
-                          style: TextStyle(fontSize: 15)),
-                      leading: const Icon(FluentIcons.edit_24_regular)),
-                  const Divider(),
-                  ListTile(
-                      contentPadding: const EdgeInsets.all(0.0),
-                      onTap: () {
-                        Get.toNamed(profileEditRoute);
-                      },
-                      title: const Text('Profile edit',
-                          style: TextStyle(fontSize: 15)),
-                      leading: const Icon(FluentIcons.person_24_regular)),
-                  const Divider(),
-                  ListTile(
-                      contentPadding: const EdgeInsets.all(0.0),
-                      onTap: () {},
-                      title: const Text('Chat', style: TextStyle(fontSize: 15)),
-                      leading: const Icon(FluentIcons.chat_24_regular)),
-                  const Divider(),
-                  ListTile(
-                      contentPadding: const EdgeInsets.all(0.0),
-                      onTap: () {
-                        Get.offAllNamed(loginRoute);
-                      },
-                      title:
-                          const Text('Logout', style: TextStyle(fontSize: 15)),
-                      leading: const Icon(FluentIcons.lock_closed_24_regular))
+                child: Column(children: const [
+                  CircleAvatar(radius: 50, backgroundImage: ExactAssetImage('assets/images/user_profile.png')),
+                  SizedBox(height: 20),
+                  TextFieldComponent(
+                      hintText: 'Name',
+                      suffixIcon: Icon(FluentIcons.person_24_regular)),
+                  SizedBox(height: 16),
+                  TextFieldComponent(
+                      hintText: 'Email',
+                      suffixIcon: Icon(FluentIcons.rating_mature_24_regular)),
+                  SizedBox(height: 16),
+                  TextFieldComponent(
+                      hintText: 'Mobile',
+                      suffixIcon: Icon(FluentIcons.call_24_regular)),
+                  SizedBox(height: 16),
+                  TextFieldComponent(
+                      hintText: 'Address',
+                      suffixIcon: Icon(FluentIcons.location_24_regular)),
+                  SizedBox(height: 16),
+                  FormButtonWidget(
+                      text: Text('PROFILE EDIT',
+                          style: TextStyle(color: whiteColor)))
                 ]))));
   }
 
@@ -98,7 +79,18 @@ class SettingFragment extends GetView<ListController> {
                 right: 16.0,
                 bottom: 16.0),
             duration: const Duration(milliseconds: 240),
-            child: Row(children: const <Widget>[Text('Setting')]))));
+            child: Row(children: [
+              GestureDetector(
+                  child: const CircleAvatar(
+                      radius: 14,
+                      child: Icon(FluentIcons.arrow_left_24_regular, size: 15)),
+                  onTap: () {
+                    FocusScope.of(Get.context!).requestFocus(FocusNode());
+                    Get.back();
+                  }),
+              const SizedBox(width: 10),
+              const Text('Profile edit')
+            ]))));
   }
 
   BorderRadius scrollHeaderBorderRadius(final bool hasScrolled) => hasScrolled

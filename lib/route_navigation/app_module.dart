@@ -7,6 +7,9 @@ abstract class AppPage {
   static final List<GetPage> pages = [
     GetPage(
         name: firstLaunchRoute,
+        page: () => const LoginPage()),
+    GetPage(
+        name: homeRoute,
         binding: HomeBinding(),
         page: () => const HomePage()),
     GetPage(
@@ -21,5 +24,10 @@ abstract class AppPage {
         name: changePasswordRoute,
         binding: ChangePasswordBinding(),
         page: () => const ChangePasswordPage()),
+    GetPage(
+        name: profileEditRoute,
+        binding: ProfileEditBinding(),
+        page: () => const ProfileEditPage()),
+
   ];
 }

@@ -2,7 +2,6 @@ import 'package:extended_sliver/extended_sliver.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../widget/text_field_component.dart';
 import '../../controller/collection_package.dart';
 import '../../resource/screen.dart';
 
@@ -25,38 +24,7 @@ class ProfileFragment extends GetView<ListController> {
               return true;
             },
             child: CustomScrollView(
-                slivers: [_buildHeader(), _profile(), _dashboard()])));
-  }
-
-  _profile() {
-    return SliverPadding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0.0),
-        sliver: SliverToBoxAdapter(
-            child: Container(
-                padding: const EdgeInsets.all(16.0),
-                decoration: BoxDecoration(
-                    color: Get.theme.backgroundColor,
-                    borderRadius:
-                        const BorderRadius.all(Radius.circular(16.0))),
-                child: Column(children: const [
-                  CircleAvatar(radius: 50),
-                  SizedBox(height: 20),
-                  TextFieldComponent(
-                      hintText: 'Name',
-                      suffixIcon: Icon(FluentIcons.person_24_regular)),
-                  SizedBox(height: 16),
-                  TextFieldComponent(
-                      hintText: 'Mobile',
-                      suffixIcon: Icon(FluentIcons.call_24_regular)),
-                  SizedBox(height: 16),
-                  TextFieldComponent(
-                      hintText: 'Email',
-                      suffixIcon: Icon(FluentIcons.rating_mature_24_regular)),
-                  SizedBox(height: 16),
-                  TextFieldComponent(
-                      hintText: 'Address',
-                      suffixIcon: Icon(FluentIcons.location_24_regular))
-                ]))));
+                slivers: [_buildHeader(), _dashboard()])));
   }
 
   _dashboard() {
@@ -70,6 +38,8 @@ class ProfileFragment extends GetView<ListController> {
                     borderRadius:
                         const BorderRadius.all(Radius.circular(16.0))),
                 child: Column(children: [
+                  const CircleAvatar(radius: 50, backgroundImage: ExactAssetImage('assets/images/user_profile.png')),
+                  const SizedBox(height: 20),
                   Card(
                       child: Padding(
                           padding: const EdgeInsets.all(10),
@@ -203,7 +173,7 @@ class ProfileFragment extends GetView<ListController> {
                 right: 16.0,
                 bottom: 16.0),
             duration: const Duration(milliseconds: 240),
-            child: Row(children: const <Widget>[Text('Profile')]))));
+            child: Row(children: const <Widget>[Text('Dashboard')]))));
   }
 
   BorderRadius scrollHeaderBorderRadius(final bool hasScrolled) => hasScrolled

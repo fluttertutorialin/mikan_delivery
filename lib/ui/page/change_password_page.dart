@@ -26,7 +26,8 @@ class ChangePasswordPage extends GetView<ChangePasswordController> {
               }
               return true;
             },
-            child: CustomScrollView(slivers: [_buildHeader(), _changePasswordForm()])));
+            child: CustomScrollView(
+                slivers: [_buildHeader(), _changePasswordForm()])));
   }
 
   _changePasswordForm() {
@@ -83,7 +84,7 @@ class ChangePasswordPage extends GetView<ChangePasswordController> {
                     Get.back();
                   }),
               const SizedBox(width: 10),
-              const Text('Chnage password')
+              const Text('Change password')
             ]))));
   }
 

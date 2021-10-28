@@ -11,7 +11,7 @@ class FormButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-            onPressed: (){},
+            onPressed: onPressed,
             child: text);
   }
 }
