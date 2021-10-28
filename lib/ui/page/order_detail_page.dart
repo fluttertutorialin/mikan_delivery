@@ -198,7 +198,7 @@ class OrderDetailPage extends GetView<OrderDetailController> {
                                               fontSize: 14.0,
                                               height: 1.25)),
                                       SizedBox(width: 8.0),
-                                      Text('Rs. 1000',
+                                      Text('Rs. 20',
                                           style: TextStyle(
                                               fontSize: 13.0,
                                               height: 1.25,
@@ -214,7 +214,7 @@ class OrderDetailPage extends GetView<OrderDetailController> {
                                               fontSize: 14.0,
                                               height: 1.25)),
                                       SizedBox(width: 8.0),
-                                      Text('Rs. 1000',
+                                      Text('Rs. 1020',
                                           style: TextStyle(
                                               fontSize: 14.0,
                                               height: 1.25,

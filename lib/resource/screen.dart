@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'dart:ui';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class Screen {
   static final MediaQueryData mediaQueryData = MediaQueryData.fromWindow(window);

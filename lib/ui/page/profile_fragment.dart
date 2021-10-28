@@ -38,7 +38,9 @@ class ProfileFragment extends GetView<ListController> {
                     borderRadius:
                         const BorderRadius.all(Radius.circular(16.0))),
                 child: Column(children: [
-                  const CircleAvatar(radius: 50, backgroundImage: ExactAssetImage('assets/images/user_profile.png')),
+                   CircleAvatar(
+                      backgroundColor: Colors.grey.withOpacity(0.1),
+                      radius: 50, backgroundImage: const ExactAssetImage('assets/images/user_profile.png')),
                   const SizedBox(height: 20),
                   Card(
                       child: Padding(

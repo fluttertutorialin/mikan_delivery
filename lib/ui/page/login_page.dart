@@ -62,7 +62,7 @@ class LoginPage extends StatelessWidget {
                       width: Get.width,
                       child: FormButtonWidget(
                           onPressed: () {
-                            Get.toNamed(homeRoute);
+                            Get.offAllNamed(homeRoute);
                           },
                           text: const Text('LOGIN',
                               style: TextStyle(color: whiteColor))))

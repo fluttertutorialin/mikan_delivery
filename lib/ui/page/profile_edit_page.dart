@@ -26,7 +26,8 @@ class ProfileEditPage extends GetView<ProfileEditController> {
               }
               return true;
             },
-            child: CustomScrollView(slivers: [_buildHeader(), _changePasswordForm()])));
+            child: CustomScrollView(
+                slivers: [_buildHeader(), _changePasswordForm()])));
   }
 
   _changePasswordForm() {
@@ -39,26 +40,30 @@ class ProfileEditPage extends GetView<ProfileEditController> {
                     color: Get.theme.backgroundColor,
                     borderRadius:
                         const BorderRadius.all(Radius.circular(16.0))),
-                child: Column(children: const [
-                  CircleAvatar(radius: 50, backgroundImage: ExactAssetImage('assets/images/user_profile.png')),
-                  SizedBox(height: 20),
-                  TextFieldComponent(
+                child: Column(children: [
+                  CircleAvatar(
+                      radius: 50,
+                      backgroundColor: Colors.grey.withOpacity(0.1),
+                      backgroundImage: const ExactAssetImage(
+                          'assets/images/user_profile.png')),
+                  const SizedBox(height: 20),
+                  const TextFieldComponent(
                       hintText: 'Name',
                       suffixIcon: Icon(FluentIcons.person_24_regular)),
-                  SizedBox(height: 16),
-                  TextFieldComponent(
+                  const SizedBox(height: 16),
+                  const TextFieldComponent(
                       hintText: 'Email',
                       suffixIcon: Icon(FluentIcons.rating_mature_24_regular)),
-                  SizedBox(height: 16),
-                  TextFieldComponent(
+                  const SizedBox(height: 16),
+                  const TextFieldComponent(
                       hintText: 'Mobile',
                       suffixIcon: Icon(FluentIcons.call_24_regular)),
-                  SizedBox(height: 16),
-                  TextFieldComponent(
+                  const SizedBox(height: 16),
+                  const TextFieldComponent(
                       hintText: 'Address',
                       suffixIcon: Icon(FluentIcons.location_24_regular)),
-                  SizedBox(height: 16),
-                  FormButtonWidget(
+                  const SizedBox(height: 16),
+                  const FormButtonWidget(
                       text: Text('PROFILE EDIT',
                           style: TextStyle(color: whiteColor)))
                 ]))));

@@ -28,18 +28,7 @@ class NotificationPage extends GetView<NotificationController> {
               }
               return true;
             },
-            child: SmartRefresher(
-                header: WaterDropMaterialHeader(
-                    backgroundColor: Get.theme.primaryColor, color: whiteColor),
-                footer: Indicator.footer(
-                    context, Get.theme.secondaryHeaderColor, bottom: 80.0),
-                enablePullDown: false,
-                enablePullUp: false,
-                controller: controller.refreshController,
-                onRefresh: controller.dispatchRefresh,
-                onLoading: controller.dispatchFetch,
-                child: CustomScrollView(
-                    slivers: [_buildHeader(), _buildList()]))));
+            child: CustomScrollView(slivers: [_buildHeader(), _buildList()])));
   }
 
   _buildList() {
