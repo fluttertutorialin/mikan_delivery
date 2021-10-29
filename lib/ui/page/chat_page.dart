@@ -69,10 +69,11 @@ class ChatPage extends GetView<ChatController> {
                                       TextStyle(fontSize: 12.0, height: 1.25))
                             ])),
                         CircleAvatar(
+                          radius: 18,
                             backgroundColor: Get.theme.scaffoldBackgroundColor,
                             child: const Text('0',
                                 style: TextStyle(
-                                    fontSize: 14.0,
+                                    fontSize: 12.0,
                                     height: 1.25)))
                       ]))));
         }, childCount: 5)));
