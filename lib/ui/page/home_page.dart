@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'list_fragment.dart';
+import 'dispatch_order_fragment.dart';
 import 'dashboard_fragment.dart';
 import 'search_fragment.dart';
 import 'setting_fragment.dart';
@@ -56,7 +56,7 @@ class HomePage extends GetView<HomeController> {
                                 }))))),
             body: Stack(children: [
               Obx(() => IndexedStack(children: const [
-                    ListFragment(),
+                    DispatchOrderFragment(),
                     SearchFragment(),
                     DashBoardFragment(),
                     SettingFragment()

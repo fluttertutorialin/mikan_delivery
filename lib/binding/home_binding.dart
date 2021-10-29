@@ -6,7 +6,7 @@ class HomeBinding extends Bindings{
   void dependencies() {
     Get.lazyPut(() => HomeController());
 
-    Get.lazyPut(() => ListController());
+    Get.lazyPut(() => DispatchOrderController());
     Get.lazyPut(() => SearchController());
     Get.lazyPut(() => DashboardController());
     Get.lazyPut(() => SettingController());

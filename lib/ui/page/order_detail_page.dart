@@ -39,6 +39,7 @@ class OrderDetailPage extends GetView<OrderDetailController> {
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0.0),
         sliver: SliverToBoxAdapter(
             child: Card(
+                elevation: 0,
                 color: Get.theme.backgroundColor,
                 margin: const EdgeInsets.all(0.0),
                 child: Padding(
@@ -127,6 +128,7 @@ class OrderDetailPage extends GetView<OrderDetailController> {
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
         sliver: SliverToBoxAdapter(
             child: Card(
+                elevation: 0,
                 color: Get.theme.backgroundColor,
                 margin: const EdgeInsets.all(0.0),
                 child: Padding(
@@ -224,6 +226,7 @@ class OrderDetailPage extends GetView<OrderDetailController> {
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0.0),
         sliver: SliverToBoxAdapter(
             child: Card(
+                elevation: 0,
                 color: Get.theme.backgroundColor,
                 margin: const EdgeInsets.all(0.0),
                 child: Padding(

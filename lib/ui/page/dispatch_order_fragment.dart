@@ -6,8 +6,8 @@ import '../../resource/string_value.dart';
 import '../../controller/collection_package.dart';
 import '../../resource/screen.dart';
 
-class ListFragment extends GetView<ListController> {
-  const ListFragment({Key? key}) : super(key: key);
+class DispatchOrderFragment extends GetView<DispatchOrderController> {
+  const DispatchOrderFragment({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
