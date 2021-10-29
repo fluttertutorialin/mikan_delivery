@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 
 class ChatMessageController extends GetxController
     with SingleGetTickerProviderMixin {
-
   final Rx<bool> _hasScrolled = Rx<bool>(false);
   bool get hasScrolled => _hasScrolled.value;
 
@@ -12,11 +11,8 @@ class ChatMessageController extends GetxController
   @override
   void onInit() {
     super.onInit();
-    animationController =
-    AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 400),
-    );
+    animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 400));
   }
 
   set hasScrolledSet(bool value) {

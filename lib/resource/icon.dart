@@ -32,3 +32,5 @@ const changePasswordSettingIcon = FluentIcons.edit_24_regular;
 const profileEditSettingIcon = FluentIcons.person_24_regular;
 const chatSettingIcon = FluentIcons.chat_24_regular;
 const logoutSettingIcon = FluentIcons.lock_closed_24_regular;
+
+const sendMessageIcon = FluentIcons.send_24_regular;

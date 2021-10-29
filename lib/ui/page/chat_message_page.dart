@@ -27,24 +27,40 @@ class ChatMessagePage extends GetView<ChatMessageController> {
               }
               return true;
             },
-            child: CustomScrollView(slivers: [_buildHeader(), _buildList()])));
+            child: Column(children: [
+              Flexible(
+                  child: CustomScrollView(
+                      slivers: [_buildHeader(), _buildList()])),
+              _inputChat()
+            ])));
+  }
+
+  _inputChat() {
+    return Container(
+        color: Get.theme.backgroundColor,
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Row(children: [
+          Flexible(
+              child: TextField(
+                  onChanged: (String text) {},
+                  decoration: const InputDecoration.collapsed(
+                      hintText: 'Enter message'))),
+          IconButton(icon: const Icon(sendMessageIcon), onPressed: () {})
+        ]));
   }
 
   _buildList() {
     return SliverPadding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0.0),
-        sliver: Column(children: [
-          Flexible(
-              child: ListView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  reverse: true,
-                  itemCount: 1,
-                  itemBuilder: (_, i) => ChatMessageItemView(
-                      message: 'Hello',
-                      uid: '1',
-                      animationController: controller.animationController!))),
-
-        ]));
+        sliver: SliverList(
+            delegate: SliverChildBuilderDelegate((context, index) {
+          return Container(
+              margin: const EdgeInsets.only(top: 5, bottom: 5),
+              child: ChatMessageItemView(
+                  message: 'Hello',
+                  uid: '1',
+                  animationController: controller.animationController!));
+        }, childCount: 5)));
   }
 
   _buildHeader() {
