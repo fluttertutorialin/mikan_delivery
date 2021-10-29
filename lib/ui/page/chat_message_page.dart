@@ -44,7 +44,7 @@ class ChatMessagePage extends GetView<ChatMessageController> {
               child: TextField(
                   onChanged: (String text) {},
                   decoration: const InputDecoration.collapsed(
-                      hintText: 'Enter message'))),
+                      hintText: enterMessageHintString))),
           IconButton(icon: const Icon(sendMessageIcon), onPressed: () {})
         ]));
   }
@@ -52,15 +52,12 @@ class ChatMessagePage extends GetView<ChatMessageController> {
   _buildMessageList() {
     return SliverPadding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0.0),
-        sliver: SliverList(
+        sliver: Obx(() => SliverList(
             delegate: SliverChildBuilderDelegate((context, index) {
-          return Container(
-              margin: const EdgeInsets.only(top: 5, bottom: 5),
-              child: ChatMessageItemView(
-                  message: 'Hello',
-                  uid: '1',
-                  animationController: controller.animationController!));
-        }, childCount: 5)));
+              return Container(
+                  margin: const EdgeInsets.only(top: 5, bottom: 5),
+                  child: controller.chatMessageListRx.value[index]);
+            }, childCount: controller.chatMessageListRx.value.length))));
   }
 
   _buildHeader() {

@@ -21,6 +21,7 @@ const orderStatusHintString = 'Order status';
 const currentPasswordHintString = 'Current password';
 const newPasswordHintString = 'New password';
 const newConfirmPasswordHintString = 'New confirm password';
+const enterMessageHintString = 'Enter message';
 
 const loginTitleString = "Let's Login";
 const loginDescriptionString = 'Do you have an account? Login';
