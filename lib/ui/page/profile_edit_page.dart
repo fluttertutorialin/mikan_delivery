@@ -1,7 +1,8 @@
 import 'package:extended_sliver/extended_sliver.dart';
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mikan/resource/icon.dart';
+import '../../resource/string_value.dart';
 import '../../resource/app_color.dart';
 import '../widget/form_button_widget.dart';
 import '../widget/text_field_component.dart';
@@ -48,23 +49,23 @@ class ProfileEditPage extends GetView<ProfileEditController> {
                           'assets/images/user_profile.png')),
                   const SizedBox(height: 20),
                   const TextFieldComponent(
-                      hintText: 'Name',
-                      suffixIcon: Icon(FluentIcons.person_24_regular)),
+                      hintText: nameHintString,
+                      suffixIcon: Icon(nameTextFieldIcon)),
                   const SizedBox(height: 16),
                   const TextFieldComponent(
-                      hintText: 'Email',
-                      suffixIcon: Icon(FluentIcons.rating_mature_24_regular)),
+                      hintText: emailHintString,
+                      suffixIcon: Icon(emailTextFieldIcon)),
                   const SizedBox(height: 16),
                   const TextFieldComponent(
-                      hintText: 'Mobile',
-                      suffixIcon: Icon(FluentIcons.call_24_regular)),
+                      hintText: mobileHintString,
+                      suffixIcon: Icon(callTextFieldIcon)),
                   const SizedBox(height: 16),
                   const TextFieldComponent(
-                      hintText: 'Address',
-                      suffixIcon: Icon(FluentIcons.location_24_regular)),
+                      hintText: addressHintString,
+                      suffixIcon: Icon(addressTextFieldIcon)),
                   const SizedBox(height: 16),
                   const FormButtonWidget(
-                      text: Text('PROFILE EDIT',
+                      text: Text(profileEditButtonString,
                           style: TextStyle(color: whiteColor)))
                 ]))));
   }
@@ -87,14 +88,13 @@ class ProfileEditPage extends GetView<ProfileEditController> {
             child: Row(children: [
               GestureDetector(
                   child: const CircleAvatar(
-                      radius: 14,
-                      child: Icon(FluentIcons.arrow_left_24_regular, size: 15)),
+                      radius: 14, child: Icon(backAndroidIcon, size: 15)),
                   onTap: () {
                     FocusScope.of(Get.context!).requestFocus(FocusNode());
                     Get.back();
                   }),
               const SizedBox(width: 10),
-              const Text('Profile edit')
+              const Text(profileEditTitleString)
             ]))));
   }
 

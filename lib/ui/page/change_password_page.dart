@@ -1,7 +1,8 @@
 import 'package:extended_sliver/extended_sliver.dart';
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mikan/resource/icon.dart';
+import '../../resource/string_value.dart';
 import '../../resource/app_color.dart';
 import '../widget/form_button_widget.dart';
 import '../widget/text_field_component.dart';
@@ -42,19 +43,19 @@ class ChangePasswordPage extends GetView<ChangePasswordController> {
                         const BorderRadius.all(Radius.circular(16.0))),
                 child: Column(children: const [
                   TextFieldComponent(
-                      hintText: 'Current password',
-                      suffixIcon: Icon(FluentIcons.eye_hide_24_regular)),
+                      hintText: currentPasswordHintString,
+                      suffixIcon: Icon(passwordHideTextFieldIcon)),
                   SizedBox(height: 16),
                   TextFieldComponent(
-                      hintText: 'New password',
-                      suffixIcon: Icon(FluentIcons.eye_hide_24_regular)),
+                      hintText: newPasswordHintString,
+                      suffixIcon: Icon(passwordHideTextFieldIcon)),
                   SizedBox(height: 16),
                   TextFieldComponent(
-                      hintText: 'New confirm password',
-                      suffixIcon: Icon(FluentIcons.eye_hide_24_regular)),
+                      hintText: newConfirmPasswordHintString,
+                      suffixIcon: Icon(passwordHideTextFieldIcon)),
                   SizedBox(height: 16),
                   FormButtonWidget(
-                      text: Text('CHANGE PASSWORD',
+                      text: Text(changePasswordButtonString,
                           style: TextStyle(color: whiteColor)))
                 ]))));
   }
@@ -78,13 +79,13 @@ class ChangePasswordPage extends GetView<ChangePasswordController> {
               GestureDetector(
                   child: const CircleAvatar(
                       radius: 14,
-                      child: Icon(FluentIcons.arrow_left_24_regular, size: 15)),
+                      child: Icon(backAndroidIcon, size: 15)),
                   onTap: () {
                     FocusScope.of(Get.context!).requestFocus(FocusNode());
                     Get.back();
                   }),
               const SizedBox(width: 10),
-              const Text('Change password')
+              const Text(changePasswordTitleString)
             ]))));
   }
 

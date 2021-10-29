@@ -1,12 +1,13 @@
 import 'package:extended_sliver/extended_sliver.dart';
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../resource/icon.dart';
+import '../../resource/string_value.dart';
 import '../../controller/collection_package.dart';
 import '../../resource/screen.dart';
 
-class ProfileFragment extends GetView<ListController> {
-  const ProfileFragment({Key? key}) : super(key: key);
+class DashBoardFragment extends GetView<DashboardController> {
+  const DashBoardFragment({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +49,7 @@ class ProfileFragment extends GetView<ListController> {
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Icon(FluentIcons.question_24_regular),
+                                const Icon(cancelDashboardIcon),
                                 const SizedBox(width: 10),
                                 Expanded(
                                     flex: 1,
@@ -56,13 +57,13 @@ class ProfileFragment extends GetView<ListController> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: const [
-                                          Text('Cancel',
+                                          Text(cancelDashboardString,
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 16.0,
                                                   height: 1.25)),
                                           SizedBox(height: 3),
-                                          Text('Customer not reply, not home',
+                                          Text(cancelDescriptionDashboardString,
                                               style: TextStyle(color: Colors.grey,
                                                   fontSize: 12.0, height: 1.25))
                                         ])),
@@ -77,7 +78,7 @@ class ProfileFragment extends GetView<ListController> {
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Icon(FluentIcons.note_24_regular),
+                                const Icon(pickUpDashboardIcon),
                                 const SizedBox(width: 10),
                                 Expanded(
                                     flex: 1,
@@ -85,13 +86,13 @@ class ProfileFragment extends GetView<ListController> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: const [
-                                          Text('Pick Up',
+                                          Text(pickUpDashboardString,
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 16.0,
                                                   height: 1.25)),
                                           SizedBox(height: 3),
-                                          Text('Free mind to collect order',
+                                          Text(pickUpDescriptionDashboardString,
                                               style: TextStyle(color: Colors.grey,
                                                   fontSize: 12.0, height: 1.25))
                                         ])),
@@ -106,7 +107,7 @@ class ProfileFragment extends GetView<ListController> {
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Icon(FluentIcons.time_picker_24_regular),
+                                const Icon(dispatchDashboardIcon),
                                 const SizedBox(width: 10),
                                 Expanded(
                                     flex: 1,
@@ -114,13 +115,13 @@ class ProfileFragment extends GetView<ListController> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: const [
-                                          Text('Dispatch',
+                                          Text(dispatchDashboardString,
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 16.0,
                                                   height: 1.25)),
                                           SizedBox(height: 3),
-                                          Text('Customer is available order successful dispatch',
+                                          Text(dispatchDescriptionDashboardString,
                                               style: TextStyle(color: Colors.grey,
                                                   fontSize: 12.0, height: 1.25))
                                         ])),
@@ -135,7 +136,7 @@ class ProfileFragment extends GetView<ListController> {
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Icon(FluentIcons.phone_update_24_regular),
+                                const Icon(earningDashboardIcon),
                                 const SizedBox(width: 10),
                                 Expanded(
                                     flex: 1,
@@ -143,13 +144,13 @@ class ProfileFragment extends GetView<ListController> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: const [
-                                          Text('Earning',
+                                          Text(earningDashboardString,
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 16.0,
                                                   height: 1.25)),
                                           SizedBox(height: 3),
-                                          Text('Get the bonus, salary, winner etc.',
+                                          Text(earningDescriptionDashboardString,
                                               style: TextStyle(color: Colors.grey,
                                                   fontSize: 12.0, height: 1.25))
                                         ])),
@@ -175,7 +176,7 @@ class ProfileFragment extends GetView<ListController> {
                 right: 16.0,
                 bottom: 16.0),
             duration: const Duration(milliseconds: 240),
-            child: Row(children: const <Widget>[Text('Dashboard')]))));
+            child: Row(children: const <Widget>[Text(dashboardTitleString)]))));
   }
 
   BorderRadius scrollHeaderBorderRadius(final bool hasScrolled) => hasScrolled

@@ -7,5 +7,8 @@ class HomeBinding extends Bindings{
     Get.lazyPut(() => HomeController());
 
     Get.lazyPut(() => ListController());
+    Get.lazyPut(() => SearchController());
+    Get.lazyPut(() => DashboardController());
+    Get.lazyPut(() => SettingController());
   }
 }

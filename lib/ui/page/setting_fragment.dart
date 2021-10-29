@@ -1,12 +1,13 @@
 import 'package:extended_sliver/extended_sliver.dart';
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../resource/icon.dart';
+import '../../resource/string_value.dart';
 import '../../route_navigation/route.dart';
 import '../../controller/collection_package.dart';
 import '../../resource/screen.dart';
 
-class SettingFragment extends GetView<ListController> {
+class SettingFragment extends GetView<SettingController> {
   const SettingFragment({Key? key}) : super(key: key);
 
   @override
@@ -44,42 +45,43 @@ class SettingFragment extends GetView<ListController> {
                       onTap: () {
                         Get.toNamed(notificationRoute);
                       },
-                      title: const Text('Notification',
+                      title: const Text(notificationSettingString,
                           style: TextStyle(fontSize: 15)),
-                      leading: const Icon(FluentIcons.number_row_16_regular)),
+                      leading: const Icon(notificationSettingIcon)),
                   const Divider(),
                   ListTile(
                       contentPadding: const EdgeInsets.all(0.0),
                       onTap: () {
                         Get.toNamed(changePasswordRoute);
                       },
-                      title: const Text('Change password',
+                      title: const Text(changePasswordSettingString,
                           style: TextStyle(fontSize: 15)),
-                      leading: const Icon(FluentIcons.edit_24_regular)),
+                      leading: const Icon(changePasswordSettingIcon)),
                   const Divider(),
                   ListTile(
                       contentPadding: const EdgeInsets.all(0.0),
                       onTap: () {
                         Get.toNamed(profileEditRoute);
                       },
-                      title: const Text('Profile edit',
+                      title: const Text(profileEditSettingString,
                           style: TextStyle(fontSize: 15)),
-                      leading: const Icon(FluentIcons.person_24_regular)),
+                      leading: const Icon(profileEditSettingIcon)),
                   const Divider(),
                   ListTile(
                       contentPadding: const EdgeInsets.all(0.0),
                       onTap: () {},
-                      title: const Text('Chat', style: TextStyle(fontSize: 15)),
-                      leading: const Icon(FluentIcons.chat_24_regular)),
+                      title: const Text(chatSettingString,
+                          style: TextStyle(fontSize: 15)),
+                      leading: const Icon(chatSettingIcon)),
                   const Divider(),
                   ListTile(
                       contentPadding: const EdgeInsets.all(0.0),
                       onTap: () {
                         Get.offAllNamed(loginRoute);
                       },
-                      title:
-                          const Text('Logout', style: TextStyle(fontSize: 15)),
-                      leading: const Icon(FluentIcons.lock_closed_24_regular))
+                      title: const Text(logoutSettingString,
+                          style: TextStyle(fontSize: 15)),
+                      leading: const Icon(logoutSettingIcon))
                 ]))));
   }
 
@@ -98,7 +100,7 @@ class SettingFragment extends GetView<ListController> {
                 right: 16.0,
                 bottom: 16.0),
             duration: const Duration(milliseconds: 240),
-            child: Row(children: const <Widget>[Text('Setting')]))));
+            child: Row(children: const <Widget>[Text(settingTitleString)]))));
   }
 
   BorderRadius scrollHeaderBorderRadius(final bool hasScrolled) => hasScrolled

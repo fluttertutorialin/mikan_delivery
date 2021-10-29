@@ -1,14 +1,15 @@
 import 'package:extended_sliver/extended_sliver.dart';
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../resource/icon.dart';
+import '../../resource/string_value.dart';
 import '../../resource/app_color.dart';
 import '../widget/form_button_widget.dart';
 import '../widget/text_field_component.dart';
 import '../../controller/collection_package.dart';
 import '../../resource/screen.dart';
 
-class SearchFragment extends GetView<ListController> {
+class SearchFragment extends GetView<SearchController> {
   const SearchFragment({Key? key}) : super(key: key);
 
   @override
@@ -41,39 +42,39 @@ class SearchFragment extends GetView<ListController> {
                         const BorderRadius.all(Radius.circular(16.0))),
                 child: Column(children: const [
                   TextFieldComponent(
-                      hintText: 'Order Id',
-                      suffixIcon: Icon(FluentIcons.app_generic_24_regular)),
+                      hintText: orderIdHintString,
+                      suffixIcon: Icon(orderIdTextFieldIcon)),
                   SizedBox(height: 16),
                   TextFieldComponent(
-                      hintText: 'Name',
-                      suffixIcon: Icon(FluentIcons.person_24_regular)),
+                      hintText: nameHintString,
+                      suffixIcon: Icon(nameTextFieldIcon)),
                   SizedBox(height: 16),
                   TextFieldComponent(
-                      hintText: 'Email',
-                      suffixIcon: Icon(FluentIcons.rating_mature_24_regular)),
+                      hintText: emailHintString,
+                      suffixIcon: Icon(emailTextFieldIcon)),
                   SizedBox(height: 16),
                   TextFieldComponent(
-                      hintText: 'Mobile',
-                      suffixIcon: Icon(FluentIcons.call_24_regular)),
+                      hintText: mobileHintString,
+                      suffixIcon: Icon(callTextFieldIcon)),
                   SizedBox(height: 16),
                   TextFieldComponent(
-                      hintText: 'Address',
-                      suffixIcon: Icon(FluentIcons.location_24_regular)),
+                      hintText: addressHintString,
+                      suffixIcon: Icon(addressTextFieldIcon)),
                   SizedBox(height: 16),
                   TextFieldComponent(
-                      hintText: 'Order date',
-                      suffixIcon: Icon(FluentIcons.time_picker_24_regular)),
+                      hintText: orderDateHintString,
+                      suffixIcon: Icon(dateTextFieldIcon)),
                   SizedBox(height: 16),
                   TextFieldComponent(
-                      hintText: 'Dispatch date',
-                      suffixIcon: Icon(FluentIcons.time_picker_24_regular)),
+                      hintText: dispatchDateHintString,
+                      suffixIcon: Icon(dateTextFieldIcon)),
                   SizedBox(height: 16),
                   TextFieldComponent(
-                      hintText: 'Order status',
-                      suffixIcon: Icon(FluentIcons.status_24_regular)),
+                      hintText: orderStatusHintString,
+                      suffixIcon: Icon(statusTextFieldIcon)),
                   SizedBox(height: 16),
                   FormButtonWidget(
-                      text: Text('SEARCH ORDER',
+                      text: Text(searchOrderButtonString,
                           style: TextStyle(color: whiteColor)))
                 ]))));
   }

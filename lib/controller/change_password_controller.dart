@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class ChangePasswordController extends GetxController {
   final Rx<bool> _hasScrolled = Rx<bool>(false);

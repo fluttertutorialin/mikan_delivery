@@ -1,7 +1,8 @@
 import 'package:extended_sliver/extended_sliver.dart';
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../resource/icon.dart';
+import '../../resource/string_value.dart';
 import '../../resource/app_color.dart';
 import '../widget/form_button_widget.dart';
 import '../../controller/collection_package.dart';
@@ -95,22 +96,19 @@ class OrderDetailPage extends GetView<OrderDetailController> {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       IconButton(
-                                          icon: const Icon(
-                                              FluentIcons.map_24_regular),
+                                          icon: const Icon(mapIcon),
                                           color: Get.theme.secondaryHeaderColor,
                                           tooltip: 'Map',
                                           iconSize: 20.0,
                                           onPressed: () {}),
                                       IconButton(
-                                          icon: const Icon(
-                                              FluentIcons.call_24_regular),
+                                          icon: const Icon(callIcon),
                                           color: Get.theme.secondaryHeaderColor,
                                           tooltip: 'Done',
                                           iconSize: 20.0,
                                           onPressed: () {}),
                                       IconButton(
-                                          icon: const Icon(
-                                              FluentIcons.chat_24_regular),
+                                          icon: const Icon(chatIcon),
                                           color: Get.theme.secondaryHeaderColor,
                                           tooltip: 'Chat',
                                           iconSize: 20.0,
@@ -120,8 +118,7 @@ class OrderDetailPage extends GetView<OrderDetailController> {
                           leading: CircleAvatar(
                               backgroundColor:
                                   Get.theme.scaffoldBackgroundColor,
-                              child:
-                                  const Icon(FluentIcons.person_24_regular))),
+                              child: const Icon(personDetailIcon)))
                     ])))));
   }
 
@@ -156,8 +153,7 @@ class OrderDetailPage extends GetView<OrderDetailController> {
                           leading: CircleAvatar(
                               backgroundColor:
                                   Get.theme.scaffoldBackgroundColor,
-                              child:
-                                  const Icon(FluentIcons.resize_20_regular))),
+                              child: const Icon(menuDetailIcon))),
                       const Divider(),
                       ListTile(
                           contentPadding: const EdgeInsets.all(0.0),
@@ -180,8 +176,7 @@ class OrderDetailPage extends GetView<OrderDetailController> {
                           leading: CircleAvatar(
                               backgroundColor:
                                   Get.theme.scaffoldBackgroundColor,
-                              child:
-                                  const Icon(FluentIcons.resize_20_regular))),
+                              child: const Icon(menuDetailIcon))),
                       const Divider(),
                       ListTile(
                           contentPadding: const EdgeInsets.all(0.0),
@@ -255,8 +250,7 @@ class OrderDetailPage extends GetView<OrderDetailController> {
                           leading: CircleAvatar(
                               backgroundColor:
                                   Get.theme.scaffoldBackgroundColor,
-                              child:
-                                  const Icon(FluentIcons.number_row_24_regular))),
+                              child: const Icon(totalItemDetailIcon))),
                       const Divider(),
                       ListTile(
                           contentPadding: const EdgeInsets.all(0.0),
@@ -284,8 +278,7 @@ class OrderDetailPage extends GetView<OrderDetailController> {
                           leading: CircleAvatar(
                               backgroundColor:
                                   Get.theme.scaffoldBackgroundColor,
-                              child:
-                                  const Icon(FluentIcons.target_24_regular))),
+                              child: const Icon(paymentSuccessDetailIcon))),
                       const Divider(),
                       ListTile(
                           contentPadding: const EdgeInsets.all(0.0),
@@ -296,7 +289,12 @@ class OrderDetailPage extends GetView<OrderDetailController> {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: const [
                                       FormButtonWidget(
-                                          text: Text('DISPATCH',
+                                          text: Text(dispatchButtonString,
+                                              style: TextStyle(
+                                                  color: whiteColor))),
+                                      SizedBox(width: 20),
+                                      FormButtonWidget(
+                                          text: Text(cancelButtonString,
                                               style:
                                                   TextStyle(color: whiteColor)))
                                     ]),
@@ -323,13 +321,13 @@ class OrderDetailPage extends GetView<OrderDetailController> {
               GestureDetector(
                   child: const CircleAvatar(
                       radius: 14,
-                      child: Icon(FluentIcons.arrow_left_24_regular, size: 15)),
+                      child: Icon(backAndroidIcon, size: 15)),
                   onTap: () {
                     FocusScope.of(Get.context!).requestFocus(FocusNode());
                     Get.back();
                   }),
               const SizedBox(width: 10),
-              const Text('Order detail')
+              const Text(orderDetailTitleString)
             ]))));
   }
 

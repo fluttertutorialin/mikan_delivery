@@ -4,7 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'list_fragment.dart';
-import 'profile_fragment.dart';
+import 'dashboard_fragment.dart';
 import 'search_fragment.dart';
 import 'setting_fragment.dart';
 import '../../controller/collection_package.dart';
@@ -58,7 +58,7 @@ class HomePage extends GetView<HomeController> {
               Obx(() => IndexedStack(children: const [
                     ListFragment(),
                     SearchFragment(),
-                    ProfileFragment(),
+                    DashBoardFragment(),
                     SettingFragment()
                   ], index: controller.selectIndex)),
             ])));

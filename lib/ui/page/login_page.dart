@@ -1,7 +1,8 @@
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import '../../resource/icon.dart';
+import '../../resource/string_value.dart';
 import '../../route_navigation/route.dart';
 import '../../resource/app_color.dart';
 import '../widget/form_button_widget.dart';
@@ -39,24 +40,24 @@ class LoginPage extends StatelessWidget {
                     borderRadius:
                         const BorderRadius.all(Radius.circular(16.0))),
                 child: Column(children: [
-                  const Text("Let's Login",
+                  const Text(loginTitleString,
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 28.0,
                           height: 1.25)),
-                  const Text("Do you have an account? Login",
+                  const Text(loginDescriptionString,
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 15.0,
                           height: 1.25)),
                   const SizedBox(height: 16),
                   const TextFieldComponent(
-                      hintText: 'Email',
-                      suffixIcon: Icon(FluentIcons.rating_mature_24_regular)),
+                      hintText: emailHintString,
+                      suffixIcon: Icon(emailTextFieldIcon)),
                   const SizedBox(height: 16),
                   const TextFieldComponent(
-                      hintText: 'Password',
-                      suffixIcon: Icon(FluentIcons.eye_hide_24_regular)),
+                      hintText: passwordHintString,
+                      suffixIcon: Icon(passwordHideTextFieldIcon)),
                   const SizedBox(height: 16),
                   SizedBox(
                       width: Get.width,
@@ -64,7 +65,7 @@ class LoginPage extends StatelessWidget {
                           onPressed: () {
                             Get.offAllNamed(homeRoute);
                           },
-                          text: const Text('LOGIN',
+                          text: const Text(loginButtonString,
                               style: TextStyle(color: whiteColor))))
                 ]))));
   }

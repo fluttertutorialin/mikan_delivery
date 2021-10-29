@@ -1,14 +1,12 @@
 import 'package:extended_sliver/extended_sliver.dart';
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
+import '../../resource/icon.dart';
+import '../../resource/string_value.dart';
 import '../../route_navigation/route.dart';
 import '../../controller/collection_package.dart';
 import '../../resource/screen.dart';
 import '../widget/tap_scale_container.dart';
-import '../../resource/app_color.dart';
-import '../widget/refresh_indicator.dart';
 
 class NotificationPage extends GetView<NotificationController> {
   const NotificationPage({Key? key}) : super(key: key);
@@ -99,13 +97,13 @@ class NotificationPage extends GetView<NotificationController> {
                                       ]))),
                           const Spacer(),
                           IconButton(
-                              icon: const Icon(FluentIcons.heart_24_regular),
+                              icon: const Icon(favoriteIcon),
                               color: Get.theme.secondaryHeaderColor,
                               tooltip: 'Add to favorite',
                               iconSize: 20.0,
                               onPressed: () {}),
                           IconButton(
-                              icon: const Icon(FluentIcons.delete_24_regular),
+                              icon: const Icon(deleteIcon),
                               color: Get.theme.secondaryHeaderColor,
                               tooltip: 'Delete',
                               iconSize: 20.0,
@@ -133,14 +131,13 @@ class NotificationPage extends GetView<NotificationController> {
             child: Row(children: [
               GestureDetector(
                   child: const CircleAvatar(
-                      radius: 14,
-                      child: Icon(FluentIcons.arrow_left_24_regular, size: 15)),
+                      radius: 14, child: Icon(backAndroidIcon, size: 15)),
                   onTap: () {
                     FocusScope.of(Get.context!).requestFocus(FocusNode());
                     Get.back();
                   }),
               const SizedBox(width: 10),
-              const Text('Notification')
+              const Text(notificationTitleString)
             ]))));
   }
 

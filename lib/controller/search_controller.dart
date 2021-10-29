@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-class ListController extends GetxController {
+class SearchController extends GetxController {
   final Rx<bool> _hasScrolled = Rx<bool>(false);
   bool get hasScrolled => _hasScrolled.value;
 
