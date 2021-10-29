@@ -28,6 +28,9 @@ abstract class AppPage {
         name: profileEditRoute,
         binding: ProfileEditBinding(),
         page: () => const ProfileEditPage()),
-
+    GetPage(
+        name: chatRoute,
+        binding: ChatBinding(),
+        page: () => const ChatPage()),
   ];
 }

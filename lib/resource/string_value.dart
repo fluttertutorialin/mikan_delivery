@@ -7,6 +7,7 @@ const String settingTitleString = 'Setting';
 const String notificationTitleString = 'Notification';
 const String changePasswordTitleString = 'Change password';
 const String profileEditTitleString = 'Profile edit';
+const String chatTitleString = 'Chat';
 
 const orderIdHintString = 'Order id';
 const nameHintString = 'Name';

@@ -7,3 +7,4 @@ const String orderDetailRoute = '/orderDetail';
 const String notificationRoute = '/notification';
 const String changePasswordRoute = '/changePassword';
 const String profileEditRoute = '/profileEdit';
+const String chatRoute = '/chat';

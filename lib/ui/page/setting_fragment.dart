@@ -69,7 +69,9 @@ class SettingFragment extends GetView<SettingController> {
                   const Divider(),
                   ListTile(
                       contentPadding: const EdgeInsets.all(0.0),
-                      onTap: () {},
+                      onTap: () {
+                        Get.toNamed(chatRoute);
+                      },
                       title: const Text(chatSettingString,
                           style: TextStyle(fontSize: 15)),
                       leading: const Icon(chatSettingIcon)),
