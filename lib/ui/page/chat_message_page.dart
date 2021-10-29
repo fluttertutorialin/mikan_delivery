@@ -30,7 +30,7 @@ class ChatMessagePage extends GetView<ChatMessageController> {
             child: Column(children: [
               Flexible(
                   child: CustomScrollView(
-                      slivers: [_buildHeader(), _buildList()])),
+                      slivers: [_buildHeader(), _buildMessageList()])),
               _inputChat()
             ])));
   }
@@ -49,7 +49,7 @@ class ChatMessagePage extends GetView<ChatMessageController> {
         ]));
   }
 
-  _buildList() {
+  _buildMessageList() {
     return SliverPadding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0.0),
         sliver: SliverList(

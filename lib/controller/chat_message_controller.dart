@@ -12,7 +12,9 @@ class ChatMessageController extends GetxController
   void onInit() {
     super.onInit();
     animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 400));
+        vsync: this, duration: const Duration(milliseconds: 0));
+
+    animationController!.forward();
   }
 
   set hasScrolledSet(bool value) {

@@ -14,7 +14,12 @@ class ChatMessageItemView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return uid == '1' ? _myMessage() : _notMyMessage();
+    return FadeTransition(
+        opacity: animationController,
+        child: SizeTransition(
+            sizeFactor: CurvedAnimation(
+                parent: animationController, curve: Curves.easeOut),
+            child: uid == '1' ? _myMessage() : _notMyMessage()));
   }
 
   _myMessage() {
@@ -23,7 +28,7 @@ class ChatMessageItemView extends StatelessWidget {
         child: Container(
             padding: const EdgeInsets.all(8.0),
             margin: const EdgeInsets.only(bottom: 1, left: 50, right: 5),
-            child: Text(message, style: const TextStyle(color: Colors.black)),
+            child: Text(message),
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(10))));
   }
@@ -34,9 +39,8 @@ class ChatMessageItemView extends StatelessWidget {
         child: Container(
             padding: const EdgeInsets.all(8.0),
             margin: const EdgeInsets.only(bottom: 1, left: 5, right: 50),
-            child: Text(message, style: const TextStyle(color: Colors.black87)),
+            child: Text(message),
             decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10))));
+                color: Colors.white, borderRadius: BorderRadius.circular(10))));
   }
 }
