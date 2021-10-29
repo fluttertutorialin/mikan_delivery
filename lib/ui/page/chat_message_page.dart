@@ -1,6 +1,7 @@
 import 'package:extended_sliver/extended_sliver.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mikan/ui/widget/chat_message_item_view.dart';
 import '../../resource/icon.dart';
 import '../../resource/string_value.dart';
 import '../../route_navigation/route.dart';
@@ -8,8 +9,8 @@ import '../../controller/collection_package.dart';
 import '../../resource/screen.dart';
 import '../widget/tap_scale_container.dart';
 
-class ChatPage extends GetView<ChatController> {
-  const ChatPage({Key? key}) : super(key: key);
+class ChatMessagePage extends GetView<ChatMessageController> {
+  const ChatMessagePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,53 +33,18 @@ class ChatPage extends GetView<ChatController> {
   _buildList() {
     return SliverPadding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0.0),
-        sliver: SliverList(
-            delegate: SliverChildBuilderDelegate((context, index) {
-          return Container(
-              margin: const EdgeInsets.only(top: 8, bottom: 8),
-              child: TapScaleContainer(
-                  onTap: () {
-                    Get.toNamed(chatMessageRoute);
-                  },
-                  decoration: BoxDecoration(
-                      color: Get.theme.backgroundColor,
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(16.0))),
-                  child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 16.0, right: 16.0, top: 16.0, bottom: 16.0),
-                      child: Row(children: <Widget>[
-                        CircleAvatar(
-                            backgroundColor: Colors.grey.withOpacity(0.1),
-                            radius: 20,
-                            backgroundImage: const ExactAssetImage(
-                                'assets/images/user_profile.png')),
-                        const SizedBox(width: 10),
-                        Expanded(
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                              Text('Lakhani Kamlesh',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 14.0,
-                                      height: 1.25)),
-                              SizedBox(height: 4),
-                              Text('Order get the successful, Thank You!',
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style:
-                                      TextStyle(fontSize: 12.0, height: 1.25))
-                            ])),
-                        CircleAvatar(
-                          radius: 18,
-                            backgroundColor: Get.theme.scaffoldBackgroundColor,
-                            child: const Text('0',
-                                style: TextStyle(
-                                    fontSize: 12.0,
-                                    height: 1.25)))
-                      ]))));
-        }, childCount: 5)));
+        sliver: Column(children: [
+          Flexible(
+              child: ListView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  reverse: true,
+                  itemCount: 1,
+                  itemBuilder: (_, i) => ChatMessageItemView(
+                      message: 'Hello',
+                      uid: '1',
+                      animationController: controller.animationController!))),
+
+        ]));
   }
 
   _buildHeader() {
@@ -105,7 +71,14 @@ class ChatPage extends GetView<ChatController> {
                     Get.back();
                   }),
               const SizedBox(width: 10),
-              const Text(chatTitleString)
+              const Text('Lakhani Kamlesh'),
+              const Spacer(),
+              IconButton(
+                  icon: const Icon(callIcon),
+                  color: Get.theme.secondaryHeaderColor,
+                  tooltip: 'Phone',
+                  iconSize: 20.0,
+                  onPressed: () {}),
             ]))));
   }
 

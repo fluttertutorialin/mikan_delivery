@@ -32,5 +32,9 @@ abstract class AppPage {
         name: chatRoute,
         binding: ChatBinding(),
         page: () => const ChatPage()),
+    GetPage(
+        name: chatMessageRoute,
+        binding: ChatMessageBinding(),
+        page: () => const ChatMessagePage()),
   ];
 }

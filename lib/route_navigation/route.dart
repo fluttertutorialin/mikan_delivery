@@ -8,3 +8,4 @@ const String notificationRoute = '/notification';
 const String changePasswordRoute = '/changePassword';
 const String profileEditRoute = '/profileEdit';
 const String chatRoute = '/chat';
+const String chatMessageRoute = '/chatMessage';

@@ -8,3 +8,4 @@ export 'dashboard_controller.dart';
 export 'setting_controller.dart';
 export 'search_controller.dart';
 export 'chat_controller.dart';
+export 'chat_message_controller.dart';
