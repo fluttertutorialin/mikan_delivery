@@ -7,8 +7,7 @@ class ChatMessageController extends GetxController
   final Rx<bool> _hasScrolled = Rx<bool>(false);
   bool get hasScrolled => _hasScrolled.value;
 
-  Rx<List<ChatMessageItemView>> chatMessageListRx =
-      Rx<List<ChatMessageItemView>>([]);
+  Rx<List<ChatMessageItemView>> chatMessageListRx = Rx<List<ChatMessageItemView>>([]);
   List<ChatMessageItemView> chatMessageList = [];
 
   AnimationController? animationController;
@@ -17,24 +16,32 @@ class ChatMessageController extends GetxController
   void onInit() {
     super.onInit();
     animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 0)); //400
+        vsync: this, duration: const Duration(milliseconds: 0));
 
-    var chatMessageItemView = ChatMessageItemView(
-        message: 'Order get the successful. Thank You!.', uid: '1', animationController: animationController!);
+    var chatMessageItemView = ChatMessageItemView(message: 'Order get the successful. Thank You!.', uid: '1', animationController: animationController!);
     chatMessageList.add(chatMessageItemView);
     chatMessageList.add(chatMessageItemView);
     chatMessageList.add(chatMessageItemView);
     chatMessageList.add(chatMessageItemView);
     chatMessageList.add(chatMessageItemView);
-
-    chatMessageListRx.value = chatMessageList;
 
     chatMessageItemView.animationController.forward();
+    chatMessageListRx.value = chatMessageList;
   }
 
   set hasScrolledSet(bool value) {
     if (_hasScrolled.value != value) {
       _hasScrolled.value = value;
     }
+  }
+
+  addNewMessage() {
+    animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 400));
+
+    var chatMessageItemView = ChatMessageItemView(message: 'New order get the successful. Thank You!.', uid: '1', animationController: animationController!);
+    chatMessageList.insert(chatMessageListRx.value.length, chatMessageItemView);
+    chatMessageItemView.animationController.forward();
+    chatMessageListRx.value = chatMessageList.obs;
   }
 }

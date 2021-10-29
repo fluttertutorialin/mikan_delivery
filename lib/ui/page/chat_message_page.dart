@@ -30,7 +30,7 @@ class ChatMessagePage extends GetView<ChatMessageController> {
             child: Column(children: [
               Flexible(
                   child: CustomScrollView(
-                      slivers: [_buildHeader(), _buildMessageList()])),
+                      slivers: [_buildHeader(), Obx(() => _buildMessageList())])),
               _inputChat()
             ])));
   }
@@ -45,19 +45,21 @@ class ChatMessagePage extends GetView<ChatMessageController> {
                   onChanged: (String text) {},
                   decoration: const InputDecoration.collapsed(
                       hintText: enterMessageHintString))),
-          IconButton(icon: const Icon(sendMessageIcon), onPressed: () {})
+          IconButton(icon: const Icon(sendMessageIcon), onPressed: () {
+            controller.addNewMessage();
+          })
         ]));
   }
 
   _buildMessageList() {
     return SliverPadding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0.0),
-        sliver: Obx(() => SliverList(
+        sliver:  SliverList(
             delegate: SliverChildBuilderDelegate((context, index) {
               return Container(
                   margin: const EdgeInsets.only(top: 5, bottom: 5),
                   child: controller.chatMessageListRx.value[index]);
-            }, childCount: controller.chatMessageListRx.value.length))));
+            }, childCount: controller.chatMessageListRx.value.length)));
   }
 
   _buildHeader() {
